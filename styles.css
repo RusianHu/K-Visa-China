@@ -50,6 +50,15 @@
     --radius-md: 8px;
     --radius-lg: 16px;
     --radius-xl: 24px;
+
+    /* Cultural Palette */
+    --china-red: #D32F2F;
+    --china-gold: #F9A825;
+    --china-ink: #1E2A38;
+    --india-saffron: #FF6F00;
+    --india-green: #2E7D32;
+    --lotus-pink: #F06292;
+    --midnight-indigo: #283593;
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -173,15 +182,87 @@ body {
 /* ===== Hero Section ===== */
 .hero {
     margin-top: 64px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, var(--china-red) 0%, var(--india-saffron) 38%, var(--primary-dark) 100%);
     color: var(--on-primary);
     padding: var(--spacing-xxl) var(--spacing-md);
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0) 55%),
+                      radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.22) 0, rgba(255, 255, 255, 0) 50%),
+                      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0, rgba(255, 255, 255, 0.08) 2px, transparent 2px, transparent 12px);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(30, 42, 56, 0.35) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-motifs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-motif {
+    position: absolute;
+    opacity: 0.32;
+    filter: blur(0);
+    animation: float 14s ease-in-out infinite;
+}
+
+.motif-lantern {
+    width: 170px;
+    height: 170px;
+    top: -50px;
+    left: 6%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(211, 47, 47, 0.75));
+    border-radius: 45% 55% 50% 60%;
+    box-shadow: 0 25px 60px rgba(211, 47, 47, 0.35);
+}
+
+.motif-lotus {
+    width: 240px;
+    height: 240px;
+    bottom: -100px;
+    right: -60px;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5), rgba(240, 98, 146, 0.65));
+    border-radius: 50%;
+    box-shadow: 0 30px 70px rgba(240, 98, 146, 0.3);
+    animation-duration: 18s;
+}
+
+.motif-kite {
+    width: 180px;
+    height: 180px;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    background: linear-gradient(135deg, rgba(249, 168, 37, 0.85), rgba(25, 118, 210, 0.6));
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    box-shadow: 0 20px 50px rgba(249, 168, 37, 0.28);
+    animation-duration: 16s;
 }
 
 .hero-title {
@@ -298,6 +379,201 @@ body {
     background-color: rgba(25, 118, 210, 0.08);
 }
 
+/* ===== Culture Bridge Section ===== */
+.culture-section {
+    position: relative;
+    background: linear-gradient(120deg, rgba(211, 47, 47, 0.95) 0%, rgba(255, 111, 0, 0.92) 45%, rgba(40, 53, 147, 0.9) 100%);
+    color: var(--surface);
+    overflow: hidden;
+}
+
+.culture-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.culture-section .section-title {
+    color: var(--surface);
+}
+
+.culture-intro {
+    max-width: 720px;
+    margin: 0 auto var(--spacing-xl);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.culture-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--surface);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+}
+
+.culture-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.culture-card:hover::after {
+    opacity: 1;
+}
+
+.culture-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+}
+
+.culture-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.culture-card-icon .material-icons {
+    color: var(--surface);
+}
+
+.culture-card-title {
+    font-size: 1.35rem;
+    margin-bottom: var(--spacing-sm);
+    color: #FFFFFF;
+}
+
+.culture-card-text {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+}
+
+.culture-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    justify-content: center;
+}
+
+.culture-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    color: rgba(255, 255, 255, 0.9);
+    transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.culture-chip:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.culture-journey {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.culture-journey-title {
+    font-size: 1.75rem;
+    color: #FFFFFF;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.culture-journey-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.culture-journey-step {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.culture-journey-step h4 {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}
+
+.culture-journey-step p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+}
+
+.culture-journey-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.culture-ornament {
+    position: absolute;
+    pointer-events: none;
+    filter: blur(0);
+    opacity: 0.4;
+    mix-blend-mode: screen;
+}
+
+.culture-ornament-left {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle at 30% 30%, rgba(240, 98, 146, 0.7), rgba(211, 47, 47, 0.1));
+    top: -120px;
+    left: -80px;
+    animation: float 18s ease-in-out infinite;
+}
+
+.culture-ornament-right {
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle at 70% 70%, rgba(255, 213, 79, 0.6), rgba(25, 118, 210, 0.15));
+    bottom: -140px;
+    right: -100px;
+    animation: float 22s ease-in-out infinite;
+}
+
 /* ===== Sections ===== */
 .section {
     padding: var(--spacing-xxl) var(--spacing-md);
@@ -349,6 +625,15 @@ body {
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     transition: all var(--transition-normal);
+}
+
+
+.culture-section .card {
+    background: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
 }
 
 .card.elevated {
@@ -875,6 +1160,18 @@ body {
 }
 
 /* ===== Animations ===== */
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-12px) scale(1.03);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -951,6 +1248,26 @@ body {
     .stat-card {
         width: 100%;
     }
+
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-journey {
+        padding: var(--spacing-lg);
+    }
+
+    .culture-journey-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-ornament {
+        display: none;
+    }
+
+    .culture-intro {
+        text-align: left;
+    }
 }
 
 @media (max-width: 480px) {
@@ -965,6 +1282,14 @@ body {
     
     .btn {
         width: 100%;
+        justify-content: center;
+    }
+
+    .culture-chip {
+        width: 100%;
+    }
+
+    .culture-chips {
         justify-content: center;
     }
 }

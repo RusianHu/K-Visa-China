@@ -177,7 +177,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe cards and timeline items
-const animatedElements = document.querySelectorAll('.card, .timeline-item, .resource-card, .stat-card');
+const animatedElements = document.querySelectorAll('.card, .timeline-item, .resource-card, .stat-card, .culture-journey-step, .culture-chip');
 animatedElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
