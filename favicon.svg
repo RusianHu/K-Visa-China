@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1976D2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#42A5F5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#grad1)"/>
+  
+  <!-- Airplane Icon (Material Design Style) -->
+  <g transform="translate(50, 50)">
+    <!-- Airplane body -->
+    <path d="M 0,-20 L 8,-8 L 15,0 L 8,8 L 0,20 L -5,15 L 0,0 L -5,-15 Z" 
+          fill="#FFFFFF" 
+          transform="rotate(-45)"/>
+    
+    <!-- Wings -->
+    <path d="M -15,-5 L -25,-10 L -20,-5 L -15,0 Z" 
+          fill="#FFFFFF" 
+          transform="rotate(-45)"/>
+    <path d="M -15,5 L -25,10 L -20,5 L -15,0 Z" 
+          fill="#FFFFFF" 
+          transform="rotate(-45)"/>
+  </g>
+  
+  <!-- Small accent circle -->
+  <circle cx="70" cy="30" r="8" fill="#FF6F00" opacity="0.8"/>
+</svg>
+
