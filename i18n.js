@@ -5,15 +5,17 @@ const translations = {
         'page-title': 'K-Visa China | Guide for Indian STEM Talents',
         
         // Navigation
-        'nav-home': 'Home',
+        'nav-home': 'Top',
         'nav-about': 'About K-Visa',
         'nav-culture': 'Culture Bridge',
         'nav-eligibility': 'Eligibility',
         'nav-application': 'Application',
         'nav-costs': 'Costs & Timeline',
         'nav-resources': 'Resources',
-        
+        'brand-tagline': '🤝 Welcome to China',
+
         // Hero Section
+        'welcome-banner': '🇨🇳 China Welcomes You! 中国欢迎您！🎉',
         'hero-title': 'China K-Visa Guide',
         'hero-subtitle': "Your Gateway to China's Innovation Ecosystem",
         'hero-description': "Comprehensive guide for Indian STEM talents applying for China's revolutionary K-Visa",
@@ -186,15 +188,17 @@ const translations = {
         'page-title': 'K字签证中国 | 印度STEM人才指南',
         
         // 导航栏
-        'nav-home': '首页',
+        'nav-home': '顶部',
         'nav-about': '关于K字签证',
         'nav-culture': '文化桥梁',
         'nav-eligibility': '资格要求',
         'nav-application': '申请流程',
         'nav-costs': '费用与时间',
         'nav-resources': '官方资源',
-        
+        'brand-tagline': '🤝 欢迎来到中国',
+
         // Hero 区域
+        'welcome-banner': '🇨🇳 中国欢迎您！China Welcomes You! 🎉',
         'hero-title': '中国K字签证指南',
         'hero-subtitle': '通往中国创新生态系统的门户',
         'hero-description': '为申请中国革命性K字签证的印度STEM人才提供的综合指南',
@@ -362,4 +366,3 @@ const translations = {
         'fab-tooltip-apply': '立即申请'
     }
 };
-
