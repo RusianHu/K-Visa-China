@@ -100,6 +100,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 64px;
+    gap: var(--spacing-md);
 }
 
 .nav-brand {
@@ -108,6 +109,7 @@ body {
     gap: var(--spacing-sm);
     font-size: 1.25rem;
     font-weight: 500;
+    flex-shrink: 0;
 }
 
 .nav-brand .material-icons {
@@ -119,6 +121,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
+    justify-content: center;
 }
 
 .brand-text {
@@ -132,6 +135,7 @@ body {
     font-weight: 400;
     opacity: 0.9;
     letter-spacing: 0.5px;
+    line-height: 1;
 }
 
 .menu-toggle {
@@ -146,7 +150,8 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    align-items: center;
 }
 
 .nav-link {
@@ -156,10 +161,66 @@ body {
     border-radius: var(--radius-md);
     transition: background-color var(--transition-fast);
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Navigation Support Button ===== */
+.nav-support-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-support-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--china-red), var(--lotus-pink));
+    color: var(--on-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+    animation: navHeartbeat 2s ease-in-out infinite;
+    height: 40px;
+    white-space: nowrap;
+}
+
+@keyframes navHeartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30% {
+        transform: scale(1.05);
+    }
+    20%, 40% {
+        transform: scale(1);
+    }
+}
+
+.nav-support-btn:hover {
+    background: linear-gradient(135deg, var(--lotus-pink), var(--china-red));
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
+    transform: translateY(-1px) scale(1.02);
+    animation: none;
+}
+
+.nav-support-btn .material-icons {
+    font-size: 20px;
+}
+
+.support-text {
+    font-weight: 600;
 }
 
 /* ===== Language Switch Button ===== */
@@ -172,7 +233,7 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 8px 16px;
     background-color: rgba(255, 255, 255, 0.15);
     color: var(--on-primary);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -182,6 +243,8 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     transition: all var(--transition-fast);
+    height: 40px;
+    white-space: nowrap;
 }
 
 .lang-switch-btn:hover {
@@ -197,6 +260,7 @@ body {
 .lang-text {
     min-width: 40px;
     text-align: center;
+    font-weight: 600;
 }
 
 /* ===== Hero Section ===== */
@@ -1438,6 +1502,17 @@ body {
         pointer-events: all;
     }
 
+    .nav-support-item {
+        margin-top: var(--spacing-sm);
+        padding-top: var(--spacing-sm);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-support-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
     .lang-switch-item {
         margin-top: var(--spacing-sm);
         padding-top: var(--spacing-sm);
@@ -1544,12 +1619,12 @@ body {
     .hero-title {
         font-size: 1.75rem;
     }
-    
+
     .hero-actions {
         flex-direction: column;
         width: 100%;
     }
-    
+
     .btn {
         width: 100%;
         justify-content: center;
@@ -1561,5 +1636,285 @@ body {
 
     .culture-chips {
         justify-content: center;
+    }
+}
+
+/* ===== 独立浮动支持按钮 ===== */
+.floating-support-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--china-red), var(--lotus-pink));
+    color: var(--on-primary);
+    border: none;
+    border-radius: 28px;
+    box-shadow: 0 4px 16px rgba(211, 47, 47, 0.4);
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    z-index: 997;
+    opacity: 0;
+    pointer-events: none;
+    animation: floatPulse 2s ease-in-out infinite;
+}
+
+@keyframes floatPulse {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 4px 16px rgba(211, 47, 47, 0.4);
+    }
+    50% {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 8px 24px rgba(211, 47, 47, 0.5);
+    }
+}
+
+.floating-support-btn.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.floating-support-btn:hover {
+    background: linear-gradient(135deg, var(--lotus-pink), var(--china-red));
+    box-shadow: 0 8px 24px rgba(211, 47, 47, 0.6);
+    transform: translateY(-4px) scale(1.05);
+    animation: none;
+}
+
+.floating-support-btn .material-icons {
+    font-size: 24px;
+}
+
+.floating-support-text {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ===== Support Modal (混淆命名避免广告拦截) ===== */
+.user-feedback-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+}
+
+.user-feedback-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.appreciation-container {
+    background-color: var(--surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-4);
+    max-width: 420px;
+    width: 90%;
+    max-height: 85vh;
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform var(--transition-normal);
+    position: relative;
+}
+
+.user-feedback-overlay.active .appreciation-container {
+    transform: scale(1) translateY(0);
+}
+
+.appreciation-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--on-primary);
+    padding: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.appreciation-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.close-appreciation {
+    background: none;
+    border: none;
+    color: var(--on-primary);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast);
+}
+
+.close-appreciation:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.appreciation-body {
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.appreciation-message {
+    font-size: 1rem;
+    color: var(--on-surface-variant);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.qr-display-area {
+    background: linear-gradient(135deg, #f5f5f5, #ffffff);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.qr-display-area::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+.qr-image-wrapper {
+    position: relative;
+    display: inline-block;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.qr-code-img {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+.appreciation-note {
+    font-size: 0.875rem;
+    color: var(--on-surface-variant);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.appreciation-note .material-icons {
+    font-size: 18px;
+    color: var(--china-red);
+}
+
+/* FAB 按钮添加 - 混淆命名 */
+.user-action-btn {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--china-red), var(--lotus-pink));
+    color: var(--on-primary);
+    border-radius: 50%;
+    box-shadow: var(--shadow-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    position: relative;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30% {
+        transform: scale(1.1);
+    }
+    20%, 40% {
+        transform: scale(1);
+    }
+}
+
+.user-action-btn:hover {
+    box-shadow: var(--shadow-3);
+    transform: scale(1.15);
+    animation: none;
+}
+
+.user-action-btn .material-icons {
+    font-size: 24px;
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+    .appreciation-container {
+        width: 95%;
+        max-width: none;
+    }
+
+    .appreciation-header {
+        padding: var(--spacing-md);
+    }
+
+    .appreciation-title {
+        font-size: 1.25rem;
+    }
+
+    .appreciation-body {
+        padding: var(--spacing-lg);
+    }
+
+    .qr-code-img {
+        max-width: 240px;
+    }
+
+    .floating-support-btn {
+        bottom: 80px;
+        right: 16px;
+        padding: 10px 16px;
+        font-size: 0.875rem;
+    }
+
+    .floating-support-btn .material-icons {
+        font-size: 20px;
     }
 }

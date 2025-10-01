@@ -12,6 +12,7 @@ const translations = {
         'nav-application': 'Application',
         'nav-costs': 'Costs & Timeline',
         'nav-resources': 'Resources',
+        'nav-support': 'Support Us',
         'brand-tagline': '🤝 Welcome to China',
 
         // Hero Section
@@ -180,7 +181,17 @@ const translations = {
         'fab-title': 'Quick Actions',
         'fab-tooltip-top': 'Back to Top',
         'fab-tooltip-check': 'Check Eligibility',
-        'fab-tooltip-apply': 'Apply Now'
+        'fab-tooltip-support': 'Support Us',
+        'fab-tooltip-apply': 'Apply Now',
+
+        // Support Modal
+        'modal-title': 'Thank You for Your Support',
+        'modal-message': 'If this guide has been helpful, feel free to scan the QR code to support us in maintaining and updating the content!',
+        'modal-note': 'Your support is our greatest motivation',
+        'modal-close': 'Close',
+        'modal-qr-alt': 'Support QR Code',
+        'floating-support-title': 'Support Us',
+        'floating-support-text': 'Support'
     },
     
     zh: {
@@ -195,6 +206,7 @@ const translations = {
         'nav-application': '申请流程',
         'nav-costs': '费用与时间',
         'nav-resources': '官方资源',
+        'nav-support': '支持我们',
         'brand-tagline': '🤝 欢迎来到中国',
 
         // Hero 区域
@@ -363,6 +375,16 @@ const translations = {
         'fab-title': '快速操作',
         'fab-tooltip-top': '返回顶部',
         'fab-tooltip-check': '检查资格',
-        'fab-tooltip-apply': '立即申请'
+        'fab-tooltip-support': '支持我们',
+        'fab-tooltip-apply': '立即申请',
+
+        // 支持弹窗
+        'modal-title': '感谢您的支持',
+        'modal-message': '如果这份指南对您有帮助，欢迎扫码支持我们继续维护和更新内容！',
+        'modal-note': '您的支持是我们最大的动力',
+        'modal-close': '关闭',
+        'modal-qr-alt': '支持二维码',
+        'floating-support-title': '支持我们',
+        'floating-support-text': '支持'
     }
 };

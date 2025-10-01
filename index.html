@@ -41,6 +41,12 @@
                 <li><a href="#application" class="nav-link" data-i18n="nav-application">Application</a></li>
                 <li><a href="#costs" class="nav-link" data-i18n="nav-costs">Costs & Timeline</a></li>
                 <li><a href="#resources" class="nav-link" data-i18n="nav-resources">Resources</a></li>
+                <li class="nav-support-item">
+                    <button class="nav-support-btn" id="navSupportBtn">
+                        <span class="material-icons">favorite</span>
+                        <span class="support-text" data-i18n="nav-support">支持我们</span>
+                    </button>
+                </li>
                 <li class="lang-switch-item">
                     <button class="lang-switch-btn" id="langSwitch">
                         <span class="material-icons">language</span>
@@ -622,6 +628,41 @@
         <a href="https://cova.cs.mfa.gov.cn" target="_blank" class="fab-action" data-i18n="fab-tooltip-apply" data-tooltip="立即申请">
             <span class="material-icons">send</span>
         </a>
+    </div>
+
+    <!-- 独立浮动支持按钮 -->
+    <button class="floating-support-btn" id="floatingSupportBtn" data-i18n-title="floating-support-title" title="支持我们">
+        <span class="material-icons">volunteer_activism</span>
+        <span class="floating-support-text" data-i18n="floating-support-text">支持</span>
+    </button>
+
+    <!-- Support Modal (混淆命名) -->
+    <div class="user-feedback-overlay" id="appreciationModal">
+        <div class="appreciation-container">
+            <div class="appreciation-header">
+                <h3 class="appreciation-title">
+                    <span class="material-icons">volunteer_activism</span>
+                    <span data-i18n="modal-title">感谢您的支持</span>
+                </h3>
+                <button class="close-appreciation" id="closeAppreciation" data-i18n-aria-label="modal-close" aria-label="Close">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="appreciation-body">
+                <p class="appreciation-message" data-i18n="modal-message">
+                    如果这份指南对您有帮助，欢迎扫码支持我们继续维护和更新内容！
+                </p>
+                <div class="qr-display-area">
+                    <div class="qr-image-wrapper">
+                        <img src="pay.jpg" alt="Support QR Code" class="qr-code-img" loading="lazy" data-i18n-alt="modal-qr-alt">
+                    </div>
+                </div>
+                <p class="appreciation-note">
+                    <span class="material-icons">favorite</span>
+                    <span data-i18n="modal-note">您的支持是我们最大的动力</span>
+                </p>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

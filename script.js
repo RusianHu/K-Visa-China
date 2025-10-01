@@ -1,5 +1,5 @@
 // ===== Language Switching System =====
-let currentLang = localStorage.getItem('preferredLanguage') || 'zh';
+let currentLang = localStorage.getItem('preferredLanguage') || 'en';
 
 // 初始化语言
 function initLanguage() {
@@ -49,6 +49,16 @@ function updateLanguage(lang) {
         const translation = translations[lang][key];
         if (translation) {
             element.setAttribute('title', translation);
+        }
+    });
+
+    // 更新带有 data-i18n-aria-label 属性的元素
+    const ariaLabelElements = document.querySelectorAll('[data-i18n-aria-label]');
+    ariaLabelElements.forEach(element => {
+        const key = element.getAttribute('data-i18n-aria-label');
+        const translation = translations[lang][key];
+        if (translation) {
+            element.setAttribute('aria-label', translation);
         }
     });
 
@@ -195,21 +205,28 @@ animatedElements.forEach(el => {
     observer.observe(el);
 });
 
-// ===== Show/Hide FAB on Scroll =====
+// ===== Show/Hide FAB and Floating Support Button on Scroll =====
 let lastScrollTop = 0;
 const fabElement = document.getElementById('fab');
+const floatingSupportElement = document.getElementById('floatingSupportBtn');
 
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     if (scrollTop > 300) {
         fabElement.style.opacity = '1';
         fabElement.style.pointerEvents = 'all';
+        if (floatingSupportElement) {
+            floatingSupportElement.classList.add('visible');
+        }
     } else {
         fabElement.style.opacity = '0';
         fabElement.style.pointerEvents = 'none';
+        if (floatingSupportElement) {
+            floatingSupportElement.classList.remove('visible');
+        }
     }
-    
+
     lastScrollTop = scrollTop;
 });
 
@@ -387,10 +404,67 @@ if ('serviceWorker' in navigator) {
     // });
 }
 
+// ===== Support Modal (混淆命名避免广告拦截) =====
+const navSupportBtn = document.getElementById('navSupportBtn');
+const floatingSupportBtn = document.getElementById('floatingSupportBtn');
+const appreciationModal = document.getElementById('appreciationModal');
+const closeAppreciation = document.getElementById('closeAppreciation');
+
+// 打开弹窗函数
+function openSupportModal(source) {
+    appreciationModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+    trackEvent('User Interaction', 'Open Support Modal', source);
+}
+
+// 导航栏支持按钮
+if (navSupportBtn) {
+    navSupportBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openSupportModal('Navigation Button');
+    });
+}
+
+// 浮动支持按钮
+if (floatingSupportBtn) {
+    floatingSupportBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openSupportModal('Floating Button');
+    });
+}
+
+// 关闭弹窗 - 点击关闭按钮
+if (closeAppreciation) {
+    closeAppreciation.addEventListener('click', () => {
+        appreciationModal.classList.remove('active');
+        document.body.style.overflow = ''; // 恢复滚动
+    });
+}
+
+// 关闭弹窗 - 点击遮罩层
+if (appreciationModal) {
+    appreciationModal.addEventListener('click', (e) => {
+        if (e.target === appreciationModal) {
+            appreciationModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// 关闭弹窗 - ESC 键
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && appreciationModal.classList.contains('active')) {
+        appreciationModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
 // ===== Initialize on DOM Load =====
 document.addEventListener('DOMContentLoaded', () => {
     console.log('K-Visa China Guide loaded successfully!');
-    
+
     // Add smooth reveal to hero section
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
