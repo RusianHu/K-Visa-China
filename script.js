@@ -32,6 +32,16 @@ function updateLanguage(lang) {
         }
     });
 
+    // 更新带有 data-i18n-alt 属性的元素
+    const altElements = document.querySelectorAll('[data-i18n-alt]');
+    altElements.forEach(element => {
+        const key = element.getAttribute('data-i18n-alt');
+        const translation = translations[lang][key];
+        if (translation) {
+            element.setAttribute('alt', translation);
+        }
+    });
+
     // 更新带有 data-i18n-title 属性的元素
     const titleElements = document.querySelectorAll('[data-i18n-title]');
     titleElements.forEach(element => {
