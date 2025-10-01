@@ -80,6 +80,20 @@ const translations = {
         'culture-journey-step4-title': 'Long-Term Rhythm',
         'culture-journey-step4-text': 'Build a bilingual portfolio, explore Chinese startup demo days, and plan slow travel across provinces after each semester.',
 
+        // Gallery Section
+        'gallery-title': 'City Inspiration Moodboard',
+        'gallery-intro': 'Let China\'s skylines, courtyards, and crafts spark ideas for your academic journey and weekend adventures.',
+        'gallery-img1-caption': 'Bund sunsets and Pudong skylines remind you that innovation hubs are minutes away.',
+        'gallery-img2-caption': 'Walk historic corridors between seminars for a living history lesson.',
+        'gallery-img3-caption': 'Join calligraphy studios to balance code sprints with mindful strokes.',
+        'gallery-img4-caption': 'Tea labs and tasting houses become your meetup rooms for bilingual ideation.',
+        'gallery-img5-caption': 'Hop on a high-speed train for quick escapes to Hangzhou lakes or Yunnan terraces.',
+        'gallery-img1-alt': 'Skyline of Shanghai glowing at sunset',
+        'gallery-img2-alt': 'Morning light over the Forbidden City rooftops',
+        'gallery-img3-alt': 'Calligraphy brush writing bold Chinese characters',
+        'gallery-img4-alt': 'Traditional tea set with steam rising',
+        'gallery-img5-alt': 'High-speed train gliding past misty mountains',
+
         // Eligibility Section
         'eligibility-title': 'Eligibility Requirements',
         'eligibility-checklist-title': 'Self-Assessment Checklist',
@@ -246,6 +260,20 @@ const translations = {
         'culture-journey-step3-text': '共同点亮排灯节灯饰，在春节庙会做志愿者，并用洒红节灵感开展设计思维工作坊。',
         'culture-journey-step4-title': '长期节奏',
         'culture-journey-step4-text': '打造双语履历，参与中国创业路演日，在学期后安排跨省慢旅行。',
+
+        // 城市灵感板块
+        'gallery-title': '城市灵感墙',
+        'gallery-intro': '让中国的天际线、古院与手作激发你的学术灵感与周末计划。',
+        'gallery-img1-caption': '外滩落日与浦东天际线提醒你，创新热土就在几站之遥。',
+        'gallery-img2-caption': '在课堂之间漫步紫禁城长廊，感受鲜活的历史课堂。',
+        'gallery-img3-caption': '加入书法工作坊，用笔墨与代码训练交替沉浸。',
+        'gallery-img4-caption': '茶室与品茗空间，成为双语头脑风暴的社交客厅。',
+        'gallery-img5-caption': '乘坐高铁周末疾驰，打卡杭州西湖或云南梯田的慢旅行。',
+        'gallery-img1-alt': '上海天际线在落日余晖中闪耀',
+        'gallery-img2-alt': '晨光洒在紫禁城的金色屋檐',
+        'gallery-img3-alt': '毛笔书写有力的汉字',
+        'gallery-img4-alt': '热气缭绕的传统茶具',
+        'gallery-img5-alt': '高铁掠过雾气缭绕的群山',
 
         // 资格要求部分
         'eligibility-title': '资格要求',
